@@ -9,4 +9,4 @@ Note: You must add your Redhat username and password where appropraite in the do
 
 Then run the image with the appropraite mounts: 
 
-    docker run --privileged=true -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/:/var/lib/docker/ -v /dev/:/dev/ insights:rht python /home/insights-docker/__init__.py  
+    docker run -t --privileged=true -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/:/var/lib/docker/ -v /dev/:/dev/ insights:rht python /home/insights-docker/__init__.py  
