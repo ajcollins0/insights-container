@@ -16,6 +16,7 @@ RUN yum -y update && yum clean all
 
 # grab the code
 RUN git clone https://github.com/redhataccess/insights-client.git /var/tmp/insights-client/
+RUN git clone https://github.com/ajcollins0/insights-container.git /home/insights-docker/
 
 # copy requirements from RHI/etc/ to /etc/ 
 RUN cp -r /var/tmp/insights-client/etc /etc/redhat-access-insights
