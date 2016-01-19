@@ -371,12 +371,11 @@ class DockerMount(Mount):
         except:
             ld, ud, wd = DockerMount._no_gd_api_overlay(cid)
 
-        options += ['ro', 'lowerdir=' + ld, 'upperdir=' + ud, 'workdir=' + wd]
+        options = ['ro', 'lowerdir=' + ld, 'upperdir=' + ud, 'workdir=' + wd]
         optstring = ','.join(options)
         cmd = ['mount', '-t', 'overlay', '-o', optstring, 'overlay',
                self.mountpoint]
         status = util.subp(cmd)
-
         if status.return_code != 0:
             self._cleanup_container(cinfo)
             raise MountError('Failed to mount OverlayFS device.\n%s' %
